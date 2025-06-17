@@ -1,0 +1,44 @@
+.navbar-menu-item {
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 21px;
+    cursor: pointer;
+    color: rgb(208, 208, 208);
+    &:hover .last-icon {
+        display: block;
+    }
+    &:hover {
+        color: white;
+    }
+}
+.navbar-menu-item-focus {
+    border-left: 2.5px solid #9b4de0;
+    border-color: #9b4de0;
+    background-color: #393243;
+}
+
+.first-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+}
+.last-icon {
+    display: none;
+    width: 20px;
+    height: 20px;
+}
+.line {
+    height: 1px;
+    margin: 21px;
+    background-color: #393441;
+}
+/* Phần có thanh cuộn */
+.scrollable {
+    max-height: 290px; /* giới hạn chiều cao */
+    overflow-y: auto;
+    padding-top: 10px;
+    /* Ngăn scroll "tràn" lên cha */
+    overscroll-behavior: none;
+}

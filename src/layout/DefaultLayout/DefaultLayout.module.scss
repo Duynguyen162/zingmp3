@@ -1,0 +1,37 @@
+.wrapper {
+    display: flex;
+    position: relative;
+}
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: #231b2e;
+    position: sticky;
+    top: 0;
+}
+
+.container {
+   flex: 1;
+    overflow: hidden;
+    padding: 0 59px;
+    margin-bottom: 90px;
+}
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #170f23;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+.play-music-wrapper{
+    position: fixed;
+    height: 90px;
+    width: 100%;
+    padding: 0 20px;
+    background-color: #130C1C;
+    bottom: 0;
+}
+
+   

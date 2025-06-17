@@ -1,0 +1,34 @@
+.wrapper {
+    margin-top: 40px;
+    h1 {
+        font-size: 40px;
+    }
+}
+.circle-icon {
+    margin: 0;
+    margin-left: 10px;
+}
+.body {
+    margin-top: 48px;
+}
+.navbar-menu {
+    position: relative;
+    display: flex;
+    font-size: 14px;
+    border-bottom: 1px solid #343434;
+    padding-bottom: 34px;
+    margin-bottom: 25px;
+}
+.header-menu {
+    margin-right: 25px;
+    color: rgb(187, 187, 187);
+}
+.test {
+    position: absolute;
+}
+.light {
+    color: white;
+    font-weight: 600;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #9b4de0;
+}

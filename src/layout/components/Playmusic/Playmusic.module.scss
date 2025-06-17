@@ -1,0 +1,142 @@
+.wrapper {
+    display: flex;
+}
+.player-control {
+    width: 40%;
+    display: block;
+}
+.player-control-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.control-item {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+.previoius,
+.next,
+.loop {
+    margin-top: 2px;
+    padding: 0;
+    align-items: center;
+}
+.control-item-play,
+.control-item-pause {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+        color: #af67d5;
+    }
+}
+
+.progress-bar {
+    width: 90%;
+    height: 3px;
+    cursor: pointer;
+}
+.player-control-bottom {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+.time-start,
+.time-end {
+    font-size: 12px;
+    padding: 10px;
+}
+.player-control-right {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+// icon lấy từ zing mp3
+.ic-base {
+    font-family: 'ZingMP3Icons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    line-height: 1;
+    font-size: 20px;
+    cursor: pointer;
+}
+.ic-mv::before {
+    content: '\4b';
+}
+.ic-karaoke::before {
+    content: '\46';
+}
+.ic-restore::before {
+    content: '\30';
+}
+.ic-list-music::before {
+    content: '\49';
+}
+//////////////////
+.control-right-item {
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+}
+.volume {
+    display: flex;
+    align-items: center;
+}
+.volume-bar {
+    width: 70px;
+    height: 5px;
+}
+.left-border {
+    border-left: 1px solid #333;
+    height: 25px;
+    margin: 0 20px;
+}
+// css cho tippy next bà
+.wrapper-tippy {
+    position: relative;
+    background-color: #2a2d34;
+    width: 270px;
+    height: 80px;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 10px;
+    .arrow {
+        position: absolute;
+        border: 15px solid;
+        border-color: #2a2d34 transparent transparent transparent;
+        bottom: -25px;
+        left: 120px;
+        pointer-events: none;
+    }
+}
+
+.header-next-tippy {
+    font-size: 14px;
+}
+.body-tippy {
+    margin-top: 5px;
+    display: flex;
+    div {
+        display: block;
+        margin-left: 5px;
+    }
+}
+.avt-tippy {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+}
+.title-tippy {
+    font-size: 14px;
+}
+.singer-tippy {
+    font-size: 12px;
+}

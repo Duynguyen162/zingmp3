@@ -1,0 +1,29 @@
+.wrapper {
+    width: 30%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+.thumb-music-img {
+    width: 60px;
+    border-radius: 3px;
+}
+.music-title {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+}
+.music-singer {
+    font-size: 12px;
+    color: #afafaf;
+}
+.title {
+    margin-left: 10px;
+}
+.heart {
+    margin: 0 20px;
+    cursor: pointer;
+}
+.more {
+    padding: 0 5px;
+}

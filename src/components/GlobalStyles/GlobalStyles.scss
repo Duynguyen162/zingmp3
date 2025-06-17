@@ -1,0 +1,79 @@
+@import 'normalize.css';
+@import url('https://zmdjs.zmdcdn.me/zmp3-desktop/v1.15.1/static/media/mp3-zing.2a3edced.woff');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'ZingMP3Icons';
+    src: url('https://zmdjs.zmdcdn.me/zmp3-desktop/v1.15.1/static/media/mp3-zing.2a3edced.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.zing-icon {
+    font-family: 'ZingMP3Icons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+}
+//đặt biến
+:root {
+    --primary: #fe2c55;
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    background-color: #170f23;
+    color: #f6f6f6;
+    overflow-y: overlay;
+}
+// Scrollbar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(246, 246, 246, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    margin: 0px;
+    padding: 0px;
+}
+button,
+input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+a {
+    text-decoration: none;
+}
+//css tippy
+.tippy-box {
+    background-color: #333333;
+    border-radius: 5px;
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}

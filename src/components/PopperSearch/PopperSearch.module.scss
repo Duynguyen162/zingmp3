@@ -1,0 +1,30 @@
+.header-suggest {
+    font-weight: 600;
+    font-size: 14px;
+}
+.wrapper {
+    width: 440px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 13px 10px;
+    background-color: #34224f;
+}
+.title {
+    font-size: 14px;
+}
+.suggest-list {
+}
+.icon {
+    font-size: 14px;
+    padding: 10px;
+    color: #a199ad;
+}
+.suggest-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        background-color: #493961;
+        border-radius: 3px;
+    }
+}
