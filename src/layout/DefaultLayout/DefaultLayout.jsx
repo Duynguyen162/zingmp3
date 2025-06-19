@@ -4,7 +4,7 @@ import Sidebar from '~/layout/components/Sidebar/Sidebar';
 import Playmusic from '../components/Playmusic/Playmusic';
 import styles from './DefaultLayout.module.scss';
 import classNames from 'classnames/bind';
-import { ChooseMusic } from '../../pages/Library/components/Song/Like';
+import { ChooseMusic } from '../../components/Media/Media';
 
 const cx = classNames.bind(styles);
 

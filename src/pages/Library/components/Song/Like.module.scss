@@ -31,6 +31,7 @@
     background-color: #2f2739;
     border-radius: 5px;
 }
+/////////////////////////////////////////////////
 .item-music-sing {
     display: flex;
     width: 50%;
@@ -42,17 +43,6 @@
     width: 40px;
     height: 40px;
     border-radius: 3px;
-}
-.item-music-album {
-    width: 30%;
-    display: flex;
-    align-items: center;
-    font-size: 13px;
-    color: #8b8791;
-    &:hover {
-        color: #c26ee8;
-        text-decoration: underline;
-    }
 }
 .title {
     font-size: 14px;
@@ -67,6 +57,18 @@
     margin-left: 10px;
     margin-top: 2px;
 }
+.item-music-album {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: #8b8791;
+    &:hover {
+        color: #c26ee8;
+        text-decoration: underline;
+    }
+}
+////////////////////////////////////
 .time {
     display: flex;
     align-items: center;

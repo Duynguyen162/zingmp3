@@ -12,10 +12,23 @@
     font-size: 14px;
     color: white;
     font-weight: 700;
+    &:hover {
+        color: #c26ee8;
+    }
+}
+.music-title-nohover {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
 }
 .music-singer {
     font-size: 12px;
     color: #afafaf;
+    cursor: pointer;
+    &:hover {
+        color: #c26ee8;
+        text-decoration: underline;
+    }
 }
 .title {
     margin-left: 10px;
@@ -26,4 +39,14 @@
 }
 .more {
     padding: 0 5px;
+}
+// css small
+.wrapper-small {
+    height: 40px;
+    width: 50%;
+}
+.thumb-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
 }

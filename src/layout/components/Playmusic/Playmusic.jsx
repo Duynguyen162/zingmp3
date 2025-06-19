@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect, useContext, use } from 'react';
-import { ChooseMusic } from '../../../pages/Library/components/Song/Like';
-
+import { ChooseMusic } from '../../../components/Media/Media';
 import classNames from 'classnames/bind';
 import styles from './Playmusic.module.scss';
 import { listMusic } from '../../../assets/dataMusic';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; // CSS mặc định
+import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faCirclePause } from '@fortawesome/free-regular-svg-icons';
 import { faShuffle, faBackwardStep, faForwardStep, faRepeat, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
@@ -105,7 +104,7 @@ export default function Playmusic() {
     };
     return (
         <div className={cx('wrapper')}>
-            <Media music={music} />
+            <Media music={music} noneColorTiltle={true}/>
             <div className={cx('player-control')}>
                 <div className={cx('player-control-top')}>
                     <FontAwesomeIcon className={cx('control-item')} icon={faShuffle} />
@@ -191,18 +190,18 @@ export default function Playmusic() {
             <div className={cx('player-control-right')}>
                 <Tippy content={<span style={{ fontSize: '10px' }}>MV</span>}>
                     <p className={cx('control-right-item')}>
-                        <i className={cx('ic-base','ic-mv')}></i>
+                        <i className={cx('ic-base', 'ic-mv')}></i>
                     </p>
                 </Tippy>
 
                 <Tippy content={<span style={{ fontSize: '10px' }}>Xem lời bài hát</span>}>
                     <p className={cx('control-right-item')}>
-                        <i className={cx('ic-base','ic-karaoke')}></i>
+                        <i className={cx('ic-base', 'ic-karaoke')}></i>
                     </p>
                 </Tippy>
                 <Tippy content={<span style={{ fontSize: '10px' }}>Chế độ cửa sổ</span>}>
                     <p className={cx('control-right-item')}>
-                        <i className={cx('ic-base','ic-restore')}></i>
+                        <i className={cx('ic-base', 'ic-restore')}></i>
                     </p>
                 </Tippy>
                 <div className={cx('volume')}>
@@ -223,7 +222,7 @@ export default function Playmusic() {
                 <div className={cx('left-border')}></div>
                 <Tippy content={<span style={{ fontSize: '10px' }}>Danh sách phát nhạc</span>}>
                     <p className={cx('control-right-item')}>
-                        <i className={cx('ic-base','ic-list-music')}></i>
+                        <i className={cx('ic-base', 'ic-list-music')}></i>
                     </p>
                 </Tippy>
             </div>
