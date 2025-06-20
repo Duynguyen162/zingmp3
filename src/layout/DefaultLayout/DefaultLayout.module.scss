@@ -11,9 +11,10 @@
 }
 
 .container {
-   flex: 1;
+    position: relative;
+    flex: 1;
     overflow: hidden;
-    padding: 0 59px;
+
     margin-bottom: 90px;
 }
 .header {
@@ -21,17 +22,23 @@
     display: flex;
     align-items: center;
     background-color: #170f23;
-    position: sticky;
-    z-index: 1;
+    position: fixed;
+    width: 100%;
+    max-width: 1298px;
+    min-width: 720px;
+    padding: 0 49px;
+    z-index: 10;
     top: 0;
 }
-.play-music-wrapper{
+.content {
+    padding: 0 59px;
+    margin-top: 70px;
+}
+.play-music-wrapper {
     position: fixed;
     height: 90px;
     width: 100%;
     padding: 0 20px;
-    background-color: #130C1C;
+    background-color: #130c1c;
     bottom: 0;
 }
-
-   

@@ -1,52 +1,20 @@
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { listMusic } from '../../assets/dataMusic';
+import Media from '~/components/Media/Media';
+import List from './List';
+import ListAutoScroll from './ListAutoScroll';
+import { listSummer } from '../../assets/listExplore';
+import { listCard, listTop100, suggestPlaylist, hotMusic, albumHot, partner } from '../../assets/listExplore';
+
 import classNames from 'classnames/bind';
 import styles from './Explore.module.scss';
-import { useState, useEffect } from 'react';
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { listMusic } from '../../assets/dataMusic';
-import Media from '~/components/Media/Media';
+
 const cx = classNames.bind(styles);
-
-const listCard = [
-    {
-        id: 0,
-        name: 'Em và tôi',
-        singer: 'Hoàng Dũng, Hà Anh Tuấn,Phan Mạnh Quỳnh, Thịnh Suy',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_jpeg/cover/6/1/9/5/6195b8365a1ee9ccff7ac045a3fd59bd.jpg',
-        backColor: 'linear-gradient(to right top, rgb(154, 154, 154), rgba(107, 255, 8, 0) 100%)',
-    },
-    {
-        id: 1,
-        name: 'Crush Ơi! Mình Yêu Nhau Đi',
-        singer: 'Wren Evans, AMEE, SUNI,Thoại Nghi',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_jpeg/cover/f/5/f/b/f5fb504aab7d0ab6e62e6308432d19b5.jpg',
-        backColor: 'linear-gradient(to top left, rgb(222, 164, 134), rgba(189, 175, 168, 0) 100%)',
-    },
-    {
-        id: 2,
-        name: 'Những Bản Hit Ngủ Quên',
-        singer: 'buitruonglinh, SOOBIN, Sofia,Thanh Hưng',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_jpeg/cover/2/d/1/f/2d1f2cef5356c08aa99771f6a670ae93.jpg',
-        backColor: 'linear-gradient(to right bottom, rgb(159, 160, 164), rgba(159, 160, 164, 0) 100%)',
-    },
-    {
-        id: 3,
-        name: 'Tình Yêu Đầu Tiên',
-        singer: 'AMEE, Kai Đinh, Suni Hạ Linh,Tùng Maru',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_jpeg/cover/1/8/1/5/181583011aea7c56f91eaf92ed30cf70.jpg',
-        backColor: 'linear-gradient(to right bottom, rgb(162, 179, 187), rgba(162, 179, 187, 0) 100%)',
-    },
-    {
-        id: 4,
-        name: 'Indie VIệt Kết Hợp',
-        singer: '14 Casper, Bon Nghiêm, RIO,52Hz',
-        img: 'https://photo-resize-zmp3.zmdcdn.me/w600_r1x1_jpeg/cover/f/6/c/e/f6ce6b9a4695b44db09d8b8d93cf3e74.jpg',
-        backColor: 'linear-gradient(to right bottom, rgb(165, 159, 146), rgba(165, 159, 146, 0) 100%)',
-    },
-];
-
+const loopAlbum = [...albumHot, ...albumHot];
 export default function Explore() {
     const [index, setIndex] = useState(0);
 
@@ -112,12 +80,12 @@ export default function Explore() {
                     </div>
                 </div>
             </div>
-
+            {/* //gợi ý bài hát                    */}
             <div className={cx('suggest-music')}>
                 <h3>Gợi Ý Bài Hát</h3>
                 <div className={cx('list-music')}>
                     {listMusic.map((item) => (
-                        <div className={cx('wrapper-item')}>
+                        <div key={item.id} className={cx('wrapper-item')}>
                             <Media className={cx('music-item')} music={item} hidden={false} />
                             <div className={cx('hover-item')}>
                                 <FontAwesomeIcon className={cx('hover-item-heart')} icon={faHeart} />
@@ -125,6 +93,85 @@ export default function Explore() {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+
+            <div className={cx('list')}>
+                <h3>Giai Điệu Đón Hè</h3>
+                <List list={listSummer} />
+            </div>
+            <div className={cx('list')}>
+                <h3>Top 100</h3>
+                <List list={listTop100} />
+            </div>
+
+            <div className={cx('list')}>
+                <h3>Gợi Ý Playlist</h3>
+                <List list={suggestPlaylist} />
+            </div>
+            <div className={cx('list')}>
+                <h3>Nhạc Hot Thịnh Hành</h3>
+                <List list={hotMusic} />
+            </div>
+
+            <div className={cx('photo-card')}>
+                <div>
+                    <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/song-vn-2x.jpg" alt="" />
+                </div>
+                <div>
+                    <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/web_song_usuk.jpg" alt="" />
+                </div>
+                <div>
+                    <img src="https://zmp3-static.zmdcdn.me/skins/zmp3-v5.2/images/web_song_kpop.jpg" alt="" />
+                </div>
+            </div>
+
+            <div className={cx('list')}>
+                <h3>Album Hot</h3>
+                {/* tách thành 1 component riêng để không re-render toàn bộ */}
+                <ListAutoScroll list={loopAlbum} />
+            </div>
+            <div className={cx('partner')}>
+                <h3>Đối Tác Âm Nhạc</h3>
+                <div className={cx('partner-list')}>
+                    {partner.map((item) => (
+                        <div key={item.id} className={cx('partner-item')}>
+                            <img className={cx('partner-img')} src={item.img} alt={item.name} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+                        <div className={cx('line')}></div>
+
+            <div className={cx('footer')}>
+                <img
+                    className={cx('footer-logo')}
+                    src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
+                    alt=""
+                />
+
+                <div className={cx('footer-item', 'mid')}>
+                    <div className={cx('footer-tiltle')}>Doanh nghiệp quản lý</div>
+                    <div className={cx('footer-content')}>
+                        Công ty Cổ phần VNG. GCN ĐKDN: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 9/9/2004. 
+                        <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, TPHCM.</p>
+                    </div>
+
+                    <div className={cx('footer-tiltle','people')}>Người chịu trách nghiệm nội dung</div>
+                    <div className={cx('footer-content')}>Ông Lê Hồng Minh</div>
+                </div>
+
+                <div className={cx('footer-item')}>
+                    <div className={cx('footer-tiltle')}>Thông tin dịch vụ</div>
+                    <div className={cx('footer-content')}>
+                        GPMXH: 157/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 24/4/2019.
+                        <div className={cx('contact')}>
+                            <p>CSKH/Liên hệ qua Zalo: 0934118443 </p>
+                            <p>Email: zingmp3@vng.com.vn.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

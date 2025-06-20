@@ -23,7 +23,7 @@ export default function Like() {
                             <p className={cx('icon')}>
                                 <i className={cx('ic-song')}></i>
                             </p>
-                            <Media music={item} hidden={false}  small={true} className={cx('media')}/>
+                            <Media music={item} hidden={false} small={true} className={cx('media')} />
 
                             <p className={cx('item-music-album')}>{item.album}</p>
                             <div className={cx('time')}>
