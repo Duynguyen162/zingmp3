@@ -1,0 +1,18 @@
+.icon {
+    width: 120px;
+    height: 120px;
+    background-image: url('https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/empty-upload-dark.png');
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text {
+    font-size: 16px;
+    color: #8b878b;
+    margin-top: 16px;
+}
+.btn {
+    font-weight: 300;
+}

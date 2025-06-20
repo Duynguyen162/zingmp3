@@ -3,14 +3,17 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function Button({ children, small, primary, setting, icon }) {
-    const classes = cx('wrapper', {
-        small,
-        primary,
-        children,
-        setting,
-        icon,
-    });
+export default function Button({ children, small, primary, setting, icon, className }) {
+    const classes = cx(
+        'wrapper',
+        {
+            small,
+            primary,
+            setting,
+            icon,
+        },
+        className,
+    );
 
     return (
         <button className={classes}>

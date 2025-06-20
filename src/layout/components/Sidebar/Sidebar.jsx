@@ -58,26 +58,26 @@ export default function Sidebar({ className }) {
             id: 5,
             icon: <BxhNhacMoiIcon />,
             title: 'BXH Nhạc Mới',
-            to: '/',
+            to: '/tableRanking',
             iconEnd: iconEnd,
         },
         {
             id: 6,
             icon: <ChuDeTheLoaiIcon />,
             title: 'Chủ đề & Thể loại',
-            to: '/',
+            to: '/themeAndGenre',
         },
         {
             id: 7,
             icon: <Top100Icon />,
             title: 'Top 100',
-            to: '/',
+            to: '/top100',
         },
         {
             id: 8,
             icon: <NghegandayIcon />,
             title: 'Nghe gần đây',
-            to: '/',
+            to: '/HeardRecently',
         },
 
         {
@@ -90,20 +90,20 @@ export default function Sidebar({ className }) {
         {
             id: 10,
             icon: <PlaylistIcon />,
-            title: 'Playlisst',
-            to: '/',
+            title: 'Playlist',
+            to: '/playList',
         },
         {
             id: 11,
             icon: <AlbumIcon />,
             title: 'Album',
-            to: '/',
+            to: '/album',
         },
         {
             id: 12,
             icon: <DatailenIcon />,
             title: 'Đã tải lên',
-            to: '/',
+            to: '/upload',
         },
     ];
     const [gohome, setGohome] = useState(0);
