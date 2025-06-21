@@ -14,11 +14,11 @@ import TableRanking from '../pages/TableRanking/TableRanking.jsx';
 import Top100 from '../pages/Top100/Top100.jsx';
 const publicRoutes = [
     {
-        path: '/explore',
+        path: '/',
         component: Explore,
     },
     {
-        path: '/',
+        path: '/library',
         component: Library,
         children: [
             {
@@ -30,17 +30,17 @@ const publicRoutes = [
                         component: Like,
                     },
                     {
-                        path: 'upload',
+                        path: '/library/upload',
                         component: Upload,
                     },
                 ],
             },
             {
-                path: 'album',
+                path: '/library/album',
                 component: Album,
             },
             {
-                path: 'mv',
+                path: '/library/mv',
                 component: MV,
             },
         ],

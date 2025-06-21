@@ -3,6 +3,7 @@ import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './Library.module.scss';
 import { Link, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -38,18 +39,21 @@ export default function Library() {
                 <nav className={cx('navbar-menu')}>
                     <div className={cx('test')}>
                         {listNavbar.map((item) => (
-                            <Link
-                                className={cx('header-menu', {
-                                    light: active === item.id,
-                                })}
+                            <NavLink
+                                to={item.path}
+                                end
+                                className={({ isActive }) =>
+                                    cx('header-menu', {
+                                        light: isActive,
+                                    })
+                                }
                                 onClick={() => {
                                     setActive(item.id);
                                 }}
                                 key={item.id}
-                                to={item.path}
                             >
                                 {item.name}
-                            </Link>
+                            </NavLink>
                         ))}
                     </div>
                 </nav>

@@ -1,21 +1,24 @@
-import { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Song.module.scss';
-import { Link, Outlet } from 'react-router-dom';
-
+import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 export default function Song() {
-    const [active, setActive] = useState(true);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('btn-song')}>
-                <Link to="" className={cx('base', { pick: active })} onClick={() => setActive(!active)}>
+                <NavLink
+                    to="/library"
+                    end
+                    className={({ isActive }) => cx('base', { pick: isActive })}
+                    onClick={() => setActive(!active)}
+                >
                     YÊU THÍCH
-                </Link>
-                <Link to="upload" className={cx('base', { pick: !active })} onClick={() => setActive(!active)}>
+                </NavLink>
+                <NavLink to="upload" className={({ isActive }) => cx('base', { pick: isActive })}>
                     ĐÃ TẢI LÊN
-                </Link>
+                </NavLink>
             </div>
             <Outlet />
         </div>

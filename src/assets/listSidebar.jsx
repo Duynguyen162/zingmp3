@@ -19,14 +19,14 @@ export const listItemSidebar = [
         id: 1,
         icon: <LibraryIcon />,
         title: 'Thư viện',
-        to: '/',
+        to: '/library',
         iconEnd: iconEnd,
     },
     {
         id: 2,
         icon: <ExploreIcon />,
         title: 'Khám phá',
-        to: '/explore',
+        to: '/',
     },
     {
         id: 3,
@@ -72,7 +72,7 @@ export const listItemSidebar = [
         id: 9,
         icon: <BaihatyeuthichIcon />,
         title: 'Bài hát yêu thích',
-        to: '/',
+        to: '/library',
         iconEnd: iconEnd,
     },
     {
@@ -85,12 +85,12 @@ export const listItemSidebar = [
         id: 11,
         icon: <AlbumIcon />,
         title: 'Album',
-        to: '/album',
+        to: '/library/album',
     },
     {
         id: 12,
         icon: <DatailenIcon />,
         title: 'Đã tải lên',
-        to: '/upload',
+        to: '/library/upload',
     },
 ];
