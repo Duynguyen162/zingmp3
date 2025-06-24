@@ -17,6 +17,9 @@ export default function Playmusic() {
     const [currentTime, setCurrentTime] = useState(0);
     const [time, setTime] = useState(0);
     const [volume, setVolume] = useState(1);
+    const [loopMusic, setLoopMusic] = useState(false); // Biến để lưu trạng thái lặp lại nhạc
+    const [randomMusic, setRandomMusic] = useState(false); // Biến để lưu trạng thái ngẫu nhiên nhạc
+    //số lượng bài nhạc trong listMusic
     const lengthMusic = listMusic.length;
     //bài nhạc trong list
     const { chooseId, setChooseId } = useContext(ChooseMusic);
@@ -38,7 +41,11 @@ export default function Playmusic() {
     const handleEnded = () => {
         audioRef.current.currentTime = 0;
         // nếu hết nhạc thì chuyển sang bài tiếp theo
-        setChooseId((prev) => (prev + 1 > lengthMusic - 1 ? 0 : prev + 1));
+        const randomNumber = Math.floor(Math.random() * lengthMusic) + 1;
+
+        !randomMusic || !loopMusic ? setChooseId((prev) => (prev + 1 > lengthMusic - 1 ? 0 : prev + 1)) : null;
+
+        randomMusic ? setChooseId(randomNumber) : null; // nếu bật random thì chọn ngẫu nhiên bài hát khác
         //cho thanh trượt về 0
         audioRef.current?.pause();
         setCurrentTime(0);
@@ -73,6 +80,17 @@ export default function Playmusic() {
         };
     }, [chooseId]);
 
+    //lắng nghe sự kiện khi nhấn nút lặp lại nhạc
+    useEffect(() => {
+        audioRef.current.addEventListener('loadedmetadata', handleLoaded);
+        audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+        audioRef.current.addEventListener('ended', handleEnded);
+        return () => {
+            audioRef.current.removeEventListener('ended', handleEnded);
+            audioRef.current.removeEventListener('loadedmetadata', handleLoaded);
+            audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+        };
+    }, [loopMusic, randomMusic]);
     //chạy nhạc
     const handlePlay = () => {
         if (isPlaying) {
@@ -104,10 +122,21 @@ export default function Playmusic() {
     };
     return (
         <div className={cx('wrapper')}>
-            <Media music={music} noneColorTiltle={true}/>
+            <Media music={music} noneColorTiltle={true} />
             <div className={cx('player-control')}>
                 <div className={cx('player-control-top')}>
-                    <FontAwesomeIcon className={cx('control-item')} icon={faShuffle} />
+                    <Tippy content={<span style={{ fontSize: '12px' }}>ngẫu nhiên</span>}>
+                        <div
+                            className={cx('random-music', { 'random-music-color': randomMusic })}
+                            onClick={() =>
+                                !loopMusic
+                                    ? setRandomMusic(!randomMusic)
+                                    : alert('không thể bật random khi đang bật lặp lại')
+                            }
+                        >
+                            <FontAwesomeIcon className={cx('control-item')} icon={faShuffle} />
+                        </div>
+                    </Tippy>
                     {/* nút quay lại bài hát trước */}
                     <div
                         className={cx('previoius')}
@@ -168,9 +197,17 @@ export default function Playmusic() {
                             </div>
                         </span>
                     </HeadlessTippy>
-                    <div className={cx('loop')}>
-                        <FontAwesomeIcon className={cx('control-item')} icon={faRepeat} />
-                    </div>
+                    <Tippy content={<span style={{ fontSize: '12px' }}>Lặp lại</span>} className={cx('loop')}>
+                        <FontAwesomeIcon
+                            className={cx('control-item', { 'loop-active': loopMusic })}
+                            icon={faRepeat}
+                            onClick={() =>
+                                !randomMusic
+                                    ? setLoopMusic(!loopMusic)
+                                    : alert('không thể bật lặp lại khi đang bật random')
+                            }
+                        />
+                    </Tippy>
                 </div>
                 {/* thời gian phát nhạc */}
                 <div className={cx('player-control-bottom')}>

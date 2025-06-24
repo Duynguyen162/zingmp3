@@ -1,5 +1,6 @@
 .wrapper {
     display: flex;
+    min-width: 1000px;
 }
 .player-control {
     width: 40%;
@@ -16,12 +17,23 @@
     padding: 10px;
     cursor: pointer;
 }
+.random-music {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.random-music-color {
+    color: #af67d5;
+}
 .previoius,
 .next,
 .loop {
     margin-top: 2px;
     padding: 0;
     align-items: center;
+}
+.loop-active {
+    color: #af67d5;
 }
 .control-item-play,
 .control-item-pause {

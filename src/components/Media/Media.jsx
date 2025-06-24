@@ -41,7 +41,12 @@ export default function Media({ music, hidden = true, className, small = false, 
                           onClick={() => setchangeheart(!changeheart)}
                       />
                   )}
-            {hidden && <FontAwesomeIcon className={cx('more')} icon={faEllipsis} />}
+            {hidden && (
+            <div className={cx('btn-more')}>
+                <div className={cx('background')}></div>
+                <FontAwesomeIcon className={cx('more')} icon={faEllipsis} />
+            </div>
+            )}
         </div>
     );
 }

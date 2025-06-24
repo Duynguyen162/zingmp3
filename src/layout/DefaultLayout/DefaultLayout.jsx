@@ -5,7 +5,6 @@ import Playmusic from '../components/Playmusic/Playmusic';
 import styles from './DefaultLayout.module.scss';
 import classNames from 'classnames/bind';
 import { ChooseMusic } from '../../components/Media/Media';
-
 const cx = classNames.bind(styles);
 
 export default function DefaultLayout({ children }) {

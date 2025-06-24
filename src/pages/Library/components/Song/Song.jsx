@@ -8,12 +8,7 @@ export default function Song() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('btn-song')}>
-                <NavLink
-                    to="/library"
-                    end
-                    className={({ isActive }) => cx('base', { pick: isActive })}
-                    onClick={() => setActive(!active)}
-                >
+                <NavLink to="/library" end className={({ isActive }) => cx('base', { pick: isActive })}>
                     YÊU THÍCH
                 </NavLink>
                 <NavLink to="upload" className={({ isActive }) => cx('base', { pick: isActive })}>

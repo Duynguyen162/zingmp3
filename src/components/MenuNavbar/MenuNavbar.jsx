@@ -1,18 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './MenuNavbar.module.scss';
-import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
-export default function MenuNavbar({ listItemSidebar, gohome }) {
-    const [itemtop, setItemtop] = useState(1);
-    useEffect(() => {
-        setItemtop(1);
-    }, [gohome]);
-    const handleClick = (id) => {
-        setItemtop(id);
-    };
+export default function MenuNavbar({ listItemSidebar }) {
     const fixedItems = listItemSidebar.filter((item) => item.id < 5);
     const scrollItems = listItemSidebar.filter((item) => item.id >= 5);
 
@@ -20,14 +12,12 @@ export default function MenuNavbar({ listItemSidebar, gohome }) {
         <div className={cx('navbar-menu')}>
             {/* Các item không cuộn */}
             {fixedItems.map((item) => (
-                <div>
+                <div key={item.id}>
                     <NavLink
                         to={item.to}
-                        key={item.id}
-                        onClick={() => handleClick(item.id)}
                         className={({ isActive }) =>
                             cx('navbar-menu-item', {
-                                'navbar-menu-item-focus': isActive ,
+                                'navbar-menu-item-focus': isActive,
                             })
                         }
                     >
@@ -44,11 +34,9 @@ export default function MenuNavbar({ listItemSidebar, gohome }) {
             {/* Các item có cuộn */}
             <div className={cx('scrollable')}>
                 {scrollItems.map((item) => (
-                    <div>
+                    <div key={item.id}>
                         <NavLink
-                            key={item.id}
                             to={item.to}
-                            onClick={() => handleClick(item.id)}
                             className={({ isActive }) =>
                                 cx('navbar-menu-item', {
                                     'navbar-menu-item-focus': isActive && item.id < 8,
