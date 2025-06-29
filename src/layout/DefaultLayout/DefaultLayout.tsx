@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Header from '~/layout/components/Header/Header';
 import Sidebar from '~/layout/components/Sidebar/Sidebar';
 import Playmusic from '../components/Playmusic/Playmusic';
 import styles from './DefaultLayout.module.scss';
 import classNames from 'classnames/bind';
-import { ChooseMusic } from '../../components/Media/Media';
+import { ChooseMusicProvider } from '~/contexts/ChooseMusicContext';
+
 const cx = classNames.bind(styles);
 
-export default function DefaultLayout({ children }) {
-    const [chooseId, setChooseId] = useState(0);
+interface DefaultLayout {
+    children: ReactNode;
+}
+
+export default function DefaultLayout({ children }: DefaultLayout) {
     return (
         <>
-            <ChooseMusic.Provider value={{ chooseId, setChooseId }}>
+            <ChooseMusicProvider>
                 <div className={cx('wrapper')}>
                     <Sidebar className={cx('sidebar')} />
 
@@ -23,7 +27,7 @@ export default function DefaultLayout({ children }) {
                 <div className={cx('play-music-wrapper')}>
                     <Playmusic />
                 </div>
-            </ChooseMusic.Provider>
+            </ChooseMusicProvider>
         </>
     );
 }

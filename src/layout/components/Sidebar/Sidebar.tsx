@@ -9,18 +9,21 @@ import { listItemSidebar } from '../../../assets/listSidebar';
 import { NavLink } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
-export default function Sidebar({ className }) {
-    
+interface Sidebar {
+    className: string;
+}
+
+export default function Sidebar({ className }: Sidebar) {
     return (
         <div className={className}>
-            <NavLink to="/" className={cx('logo-navbar')} >
+            <NavLink to="/" className={cx('logo-navbar')}>
                 <img
                     className={cx('logo')}
                     src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
                     alt="logo"
                 />
             </NavLink>
-            <MenuNavbar listItemSidebar={listItemSidebar}  />
+            <MenuNavbar listItemSidebar={listItemSidebar} />
             <div className={cx('add-playlist')}>
                 <AddplaylistIcon />
                 <p>Tạo playlist mới</p>

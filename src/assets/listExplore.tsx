@@ -1,4 +1,14 @@
-export const listCard = [
+export interface listItem {
+    id: number;
+    name?: string;
+    singer?: string;
+    img?: string;
+    backColor?: string;
+    title?: string;
+    header?: string;
+}
+
+export const listCard: listItem[] = [
     {
         id: 0,
         name: 'Em và tôi',
@@ -35,7 +45,7 @@ export const listCard = [
         backColor: 'linear-gradient(to right bottom, rgb(165, 159, 146), rgba(165, 159, 146, 0) 100%)',
     },
 ];
-export const listSummer = [
+export const listSummer: listItem[] = [
     {
         id: 0,
         title: 'Ngày thảnh thơi cùng những ca khúc V-Pop acoustic nhẹ nhàng tựa làn gió mát xoa dịu nắng hè nóng nực',
@@ -62,7 +72,7 @@ export const listSummer = [
         img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/c/e/a/0/cea040d39b2862e798543b52089184d8.jpg',
     },
 ];
-export const listTop100 = [
+export const listTop100: listItem[] = [
     {
         id: 0,
         header: 'Top 100 Nhạc V-Pop Hay Nhất',
@@ -95,7 +105,7 @@ export const listTop100 = [
     },
 ];
 
-export const suggestPlaylist = [
+export const suggestPlaylist: listItem[] = [
     {
         id: 0,
         header: 'dành riêng cho kẻ lụy tình',
@@ -128,7 +138,7 @@ export const suggestPlaylist = [
     },
 ];
 
-export const hotMusic = [
+export const hotMusic: listItem[] = [
     {
         id: 0,
         title: 'Nhạc Hoa lời Việt đang được chia sẻ nhiều nhất',
@@ -156,7 +166,7 @@ export const hotMusic = [
     },
 ];
 
-export const albumHot = [
+export const albumHot: listItem[] = [
     {
         id: 0,
         title: 'Nhạc Hoa lời Việt đang được chia sẻ nhiều nhất',
@@ -213,7 +223,7 @@ export const albumHot = [
         img: 'https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/b/c/5/8/bc58f24cc102659381ab2f4638bb594d.jpg',
     },
 ];
-export const partner = [
+export const partner: listItem[] = [
     {
         id: 0,
         img: 'https://static-zmp3.zmdcdn.me/skins/zmp3-v6.1/images/partner_logo/yg.png',

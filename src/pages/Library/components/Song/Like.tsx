@@ -4,11 +4,11 @@ import styles from './Like.module.scss';
 import { listMusic } from '../../../../assets/dataMusic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { ChooseMusic } from '../../../../components/Media/Media';
 import Media from '../../../../components/Media/Media';
+import { useChooseMusic } from '~/contexts/ChooseMusicContext';
 const cx = classNames.bind(styles);
 export default function Like() {
-    const { chooseId, setChooseId } = useContext(ChooseMusic); // sử dụng context để lấy id bài hát được chọn
+    const { chooseId, setChooseId } = useChooseMusic(); // sử dụng context để lấy id bài hát được chọn
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>

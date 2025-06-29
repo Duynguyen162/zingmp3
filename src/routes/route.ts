@@ -1,17 +1,17 @@
-import Explore from '../pages/Explore/Explore.jsx';
-import Library from '../pages/Library/Library.jsx';
-import Song from '../pages/Library/components/Song/Song.jsx';
-import Album from '../pages/Library/components/Album/Album.jsx';
-import MV from '../pages/Library/components/Mv/Mv.jsx';
-import MusicRoom from '../pages/MusicRoom/MusicRoom.jsx';
-import Zingchart from '../pages/Zingchart/Zingchart.jsx';
-import Like from '../pages/Library/components/Song/Like.jsx';
-import Upload from '../pages/Library/components/Song/upload.jsx';
-import HeardRecently from '../pages/HeardRecently/HeardRecently.jsx';
-import PlayList from '../pages/PlayList/PlayList.jsx';
-import ThemeAndGenre from '../pages/ThemeAndGenre/ThemeAndGenre.jsx';
-import TableRanking from '../pages/TableRanking/TableRanking.jsx';
-import Top100 from '../pages/Top100/Top100.jsx';
+import Explore from '../pages/Explore/Explore';
+import Library from '../pages/Library/Library';
+import Song from '../pages/Library/components/Song/Song';
+import Album from '../pages/Library/components/Album/Album';
+import MV from '../pages/Library/components/Mv/Mv';
+import MusicRoom from '../pages/MusicRoom/MusicRoom';
+import Zingchart from '../pages/Zingchart/Zingchart';
+import Like from '../pages/Library/components/Song/Like';
+import Upload from '../pages/Library/components/Song/Upload';
+import HeardRecently from '../pages/HeardRecently/HeardRecently';
+import PlayList from '../pages/PlayList/PlayList';
+import ThemeAndGenre from '../pages/ThemeAndGenre/ThemeAndGenre';
+import TableRanking from '../pages/TableRanking/TableRanking';
+import Top100 from '../pages/Top100/Top100';
 const publicRoutes = [
     {
         path: '/',
@@ -76,9 +76,7 @@ const publicRoutes = [
     {
         path: '/top100',
         component: Top100,
-    }
-    
-
+    },
 ];
 
 export { publicRoutes };

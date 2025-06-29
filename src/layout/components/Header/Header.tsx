@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from '../../../components/Button/Button';
 import avatar from '../../../assets/img/avatar.png';
-import { DownloadIcon } from '../../../assets/icon/icons.jsx';
-import PopperSetting from '../../../components/PopperSetting/PopperSetting.jsx';
-import { listSetting } from '../../../assets/listHeader.jsx';
-import Popper from '../../../components/PopperSearch/PopperSearch.jsx';
+import { DownloadIcon } from '../../../assets/icon/icons';
+import PopperSetting from '../../../components/PopperSetting/PopperSetting';
+import { listSetting } from '../../../assets/listHeader';
+import Popper from '../../../components/PopperSearch/PopperSearch';
 
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -16,7 +16,11 @@ import 'tippy.js/dist/tippy.css'; // CSS mặc định
 
 const cx = classNames.bind(styles);
 
-export default function Header({ className }) {
+interface HeaderProps {
+    className?: string;
+}
+
+export default function Header({ className }: HeaderProps) {
     const [isOpenSuggest, setIsOpenSuggest] = useState(false);
 
     return (
@@ -28,7 +32,7 @@ export default function Header({ className }) {
                     offset={[0, 0]}
                     onClickOutside={() => setIsOpenSuggest(false)} // Đóng khi click ra ngoài
                     render={(attrs) => (
-                        <div tabIndex="-1" {...attrs} onClick={() => setIsOpenSuggest(false)}>
+                        <div tabIndex={-1} {...attrs} onClick={() => setIsOpenSuggest(false)}>
                             <Popper />
                         </div>
                     )}
@@ -46,11 +50,11 @@ export default function Header({ className }) {
 
             <div className={cx('column-2')}>
                 <Button primary>
-                    <a>Nâng cấp tài khoản</a>
+                    <span>Nâng cấp tài khoản</span>
                 </Button>
 
                 <Button icon={<DownloadIcon />}>
-                    <a>Tải bản Windows</a>
+                    <span>Tải bản Windows</span>
                 </Button>
 
                 <div className={cx('wrapper-setting')}>

@@ -1,4 +1,12 @@
-export const listMusicRoom = [
+interface ListMusicRoom {
+    id: number;
+    tiltle: string;
+    listener: number;
+    imgLarge: string;
+    imgSmall: string;
+}
+
+export const listMusicRoom: ListMusicRoom[] = [
     {
         id: 0,
         tiltle: 'V-POP',

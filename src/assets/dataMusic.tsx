@@ -7,7 +7,19 @@ import motphut from '~/assets/music/mot-phut.mp3';
 import khongyeucungchangcodon from '~/assets/music/khong-yeu-cung-chang-co-don.mp3';
 import mashuploduyen from '~/assets/music/mashup-lo-duyen.mp3';
 import khongyeuxindungnoi from '~/assets/music/khong-yeu-xin-dung-noi.mp3';
-export const listMusic = [
+import { JSX } from 'react';
+
+interface ListMusic {
+    id: number;
+    title: string;
+    singer: string;
+    thumb: string;
+    album: string;
+    music: string;
+    time: string;
+}
+
+export const listMusic: ListMusic[] = [
     {
         id: 0,
         title: 'Đến Đây Bên Anh',

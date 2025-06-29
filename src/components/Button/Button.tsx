@@ -1,9 +1,19 @@
+import React from 'react';
 import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export default function Button({ children, small, primary, setting, icon, className }) {
+interface ButtonProps {
+    children: any;
+    small?: boolean;
+    primary?: boolean;
+    setting?: boolean;
+    icon?: any;
+    className?: string;
+}
+
+export default function Button({ children, small, primary, setting, icon, className }: ButtonProps) {
     const classes = cx(
         'wrapper',
         {

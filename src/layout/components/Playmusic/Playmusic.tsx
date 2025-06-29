@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect, useContext, use } from 'react';
-import { ChooseMusic } from '../../../components/Media/Media';
 import classNames from 'classnames/bind';
 import styles from './Playmusic.module.scss';
 import { listMusic } from '../../../assets/dataMusic';
@@ -10,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faCirclePause } from '@fortawesome/free-regular-svg-icons';
 import { faShuffle, faBackwardStep, faForwardStep, faRepeat, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 import Media from '../../../components/Media/Media';
-
+import { useChooseMusic } from '~/contexts/ChooseMusicContext';
 const cx = classNames.bind(styles);
 
 export default function Playmusic() {
@@ -22,13 +21,13 @@ export default function Playmusic() {
     //số lượng bài nhạc trong listMusic
     const lengthMusic = listMusic.length;
     //bài nhạc trong list
-    const { chooseId, setChooseId } = useContext(ChooseMusic);
+    const { chooseId, setChooseId } = useChooseMusic();
     // nếu không có id thì lấy bài đầu tiên
     const music = listMusic[chooseId] || listMusic[0];
 
     //để làm nút bấm chạy, dừng
     const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef();
+    const audioRef = useRef<HTMLAudioElement>(new Audio());
 
     // nhận độ dài đoạn nhạc khi load xong
     const handleLoaded = () => setTime(audioRef.current.duration);
@@ -102,20 +101,20 @@ export default function Playmusic() {
     };
 
     // set thời gian khi kéo thanh trượt
-    const handleSetTime = (e) => {
+    const handleSetTime = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newtime = parseFloat(e.target.value);
         audioRef.current.currentTime = newtime;
         setCurrentTime(newtime);
     };
     //set volum cho thanh trượt
-    const handleVolumeChange = (e) => {
+    const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseFloat(e.target.value);
         audioRef.current.volume = newVolume;
         setVolume(newVolume);
     };
 
     //format thời gian chạy
-    const formatTime = (time) => {
+    const formatTime = (time: number) => {
         const minutes = Math.floor(time / 60);
         const seconds = Math.floor(time % 60);
         return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -165,7 +164,7 @@ export default function Playmusic() {
                         interactive={true}
                         appendTo={document.body}
                         render={(atrr) => (
-                            <div className={cx('wrapper-tippy')} tabIndex="-1" {...atrr}>
+                            <div className={cx('wrapper-tippy')} tabIndex={-1} {...atrr}>
                                 <div className={cx('arrow')}></div>
                                 <span className={cx('header-next-tippy')}>Bài tiếp theo</span>
                                 <div className={cx('body-tippy')}>

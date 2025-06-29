@@ -1,11 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { listMusic } from '../../assets/dataMusic';
+import { useState } from 'react';
+import { listMusic } from '~/assets/dataMusic';
 import Media from '~/components/Media/Media';
 import List from './List';
 import ListAutoScroll from './ListAutoScroll';
-import { listSummer } from '../../assets/listExplore';
-import { listCard, listTop100, suggestPlaylist, hotMusic, albumHot, partner } from '../../assets/listExplore';
+import { listSummer } from '~/assets/listExplore';
+import { listCard, listTop100, suggestPlaylist, hotMusic, albumHot, partner } from '~/assets/listExplore';
 
 import classNames from 'classnames/bind';
 import styles from './Explore.module.scss';
@@ -142,8 +142,7 @@ export default function Explore() {
                 </div>
             </div>
 
-
-                        <div className={cx('line')}></div>
+            <div className={cx('line')}></div>
 
             <div className={cx('footer')}>
                 <img
@@ -155,11 +154,11 @@ export default function Explore() {
                 <div className={cx('footer-item', 'mid')}>
                     <div className={cx('footer-tiltle')}>Doanh nghiệp quản lý</div>
                     <div className={cx('footer-content')}>
-                        Công ty Cổ phần VNG. GCN ĐKDN: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 9/9/2004. 
+                        Công ty Cổ phần VNG. GCN ĐKDN: 0303490096 do sở KH & ĐT TP.HCM cấp ngày 9/9/2004.
                         <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, TPHCM.</p>
                     </div>
 
-                    <div className={cx('footer-tiltle','people')}>Người chịu trách nghiệm nội dung</div>
+                    <div className={cx('footer-tiltle', 'people')}>Người chịu trách nghiệm nội dung</div>
                     <div className={cx('footer-content')}>Ông Lê Hồng Minh</div>
                 </div>
 

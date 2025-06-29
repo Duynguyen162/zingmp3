@@ -13,84 +13,94 @@ import {
 } from '~/assets/icon/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
+import { JSX } from 'react';
 const iconEnd = <FontAwesomeIcon style={{ width: '100%', height: '100%' }} icon={faCirclePlay} />;
-export const listItemSidebar = [
+
+interface ListItemSidebar {
+    id: number;
+    icon: JSX.Element;
+    tiltle: string;
+    to: string;
+    iconEnd?: JSX.Element;
+}
+
+export const listItemSidebar: ListItemSidebar[] = [
     {
         id: 1,
         icon: <LibraryIcon />,
-        title: 'Thư viện',
+        tiltle: 'Thư viện',
         to: '/library',
         iconEnd: iconEnd,
     },
     {
         id: 2,
         icon: <ExploreIcon />,
-        title: 'Khám phá',
+        tiltle: 'Khám phá',
         to: '/',
     },
     {
         id: 3,
         icon: <LibraryIcon />,
-        title: '#zingchart',
+        tiltle: '#zingchart',
         to: '/zingchart',
         iconEnd: iconEnd,
     },
     {
         id: 4,
         icon: <MusicRoomIcon />,
-        title: 'Phòng nhạc',
+        tiltle: 'Phòng nhạc',
         to: '/musicRoom',
         iconEnd: iconEnd,
     },
     {
         id: 5,
         icon: <BxhNhacMoiIcon />,
-        title: 'BXH Nhạc Mới',
+        tiltle: 'BXH Nhạc Mới',
         to: '/tableRanking',
         iconEnd: iconEnd,
     },
     {
         id: 6,
         icon: <ChuDeTheLoaiIcon />,
-        title: 'Chủ đề & Thể loại',
+        tiltle: 'Chủ đề & Thể loại',
         to: '/themeAndGenre',
     },
     {
         id: 7,
         icon: <Top100Icon />,
-        title: 'Top 100',
+        tiltle: 'Top 100',
         to: '/top100',
     },
     {
         id: 8,
         icon: <NghegandayIcon />,
-        title: 'Nghe gần đây',
+        tiltle: 'Nghe gần đây',
         to: '/HeardRecently',
     },
 
     {
         id: 9,
         icon: <BaihatyeuthichIcon />,
-        title: 'Bài hát yêu thích',
+        tiltle: 'Bài hát yêu thích',
         to: '/library',
         iconEnd: iconEnd,
     },
     {
         id: 10,
         icon: <PlaylistIcon />,
-        title: 'Playlist',
+        tiltle: 'Playlist',
         to: '/playList',
     },
     {
         id: 11,
         icon: <AlbumIcon />,
-        title: 'Album',
+        tiltle: 'Album',
         to: '/library/album',
     },
     {
         id: 12,
         icon: <DatailenIcon />,
-        title: 'Đã tải lên',
+        tiltle: 'Đã tải lên',
         to: '/library/upload',
     },
 ];

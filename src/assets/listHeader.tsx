@@ -10,7 +10,17 @@ import {
     faPhone,
     faUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
-export const listSetting = [
+import { JSX } from 'react';
+
+interface ListSetting {
+    id: number;
+    attribute?: string;
+    firstIcon: JSX.Element;
+    title: string;
+    lastIcon?: JSX.Element;
+}
+
+export const listSetting: ListSetting[] = [
     {
         id: 1,
         firstIcon: <FontAwesomeIcon icon={faCirclePlay} />,

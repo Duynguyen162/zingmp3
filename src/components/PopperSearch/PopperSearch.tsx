@@ -5,8 +5,12 @@ import { faArrowTrendUp } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
+interface SuggestItem {
+    id: number;
+    title: string;
+}
 export default function Popper() {
-    const data = [
+    const data: SuggestItem[] = [
         {
             id: 1,
             title: 'Phép màu',
@@ -35,7 +39,8 @@ export default function Popper() {
                 {data.map((data) => (
                     <li key={data.id} className={cx('suggest-item')}>
                         <FontAwesomeIcon className={cx('icon')} icon={faArrowTrendUp} />
-                        <span className={cx('title')}>{data.title}</span></li>
+                        <span className={cx('title')}>{data.title}</span>
+                    </li>
                 ))}
             </ul>
         </div>
