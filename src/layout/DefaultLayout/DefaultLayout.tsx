@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import Header from '~/layout/components/Header/Header';
 import Sidebar from '~/layout/components/Sidebar/Sidebar';
 import Playmusic from '../components/Playmusic/Playmusic';
@@ -13,11 +13,28 @@ interface DefaultLayout {
 }
 
 export default function DefaultLayout({ children }: DefaultLayout) {
+    const [isCompact, setIsCompact] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSidebarOpen(window.innerWidth < 1132);
+            setIsCompact(window.innerWidth < 1132);
+        };
+        window.addEventListener('resize', handleResize);
+        handleResize(); // chạy lần đầu
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return (
         <>
             <ChooseMusicProvider>
                 <div className={cx('wrapper')}>
-                    <Sidebar className={cx('sidebar')} />
+                    <Sidebar
+                        className={cx('sidebar', { 'sidebar-fix': isSidebarOpen })}
+                        isSidebarOpen={isSidebarOpen}
+                        setIsSidebarOpen={setIsSidebarOpen}
+                        isCompact={isCompact}
+                    />
 
                     <div className={cx('container')}>
                         <Header className={cx('header')} />

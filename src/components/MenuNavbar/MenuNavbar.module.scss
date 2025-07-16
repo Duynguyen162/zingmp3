@@ -1,5 +1,6 @@
 .navbar-menu-item {
     height: 48px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,6 +18,9 @@
     border-left: 2.5px solid #9b4de0;
     border-color: #9b4de0;
     background-color: #393243;
+}
+.focus-fix {
+    border-left: 0;
 }
 
 .first-icon {
@@ -36,6 +40,7 @@
 }
 /* Phần có thanh cuộn */
 .scrollable {
+    width: 240px;
     max-height: 290px; /* giới hạn chiều cao */
     overflow-y: auto;
     padding-top: 10px;

@@ -13,10 +13,11 @@ interface item {
 }
 interface menuNavbarProps {
     listItemSidebar: item[];
+    isSidebarOpen: boolean;
 }
 const cx = classNames.bind(styles);
 
-export default function MenuNavbar({ listItemSidebar }: menuNavbarProps) {
+export default function MenuNavbar({ listItemSidebar, isSidebarOpen }: menuNavbarProps) {
     const fixedItems = listItemSidebar.filter((item: item) => item.id < 5);
     const scrollItems = listItemSidebar.filter((item: item) => item.id >= 5);
 
@@ -30,14 +31,15 @@ export default function MenuNavbar({ listItemSidebar }: menuNavbarProps) {
                         className={({ isActive }) =>
                             cx('navbar-menu-item', {
                                 'navbar-menu-item-focus': isActive,
+                                'focus-fix': isSidebarOpen,
                             })
                         }
                     >
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <div className={cx('first-icon')}>{item.icon}</div>
-                            <div className={cx('title')}>{item.tiltle}</div>
+                            {!isSidebarOpen && <div className={cx('title')}>{item.tiltle}</div>}
                         </div>
-                        <div className={cx('last-icon')}>{item.iconEnd}</div>
+                        {!isSidebarOpen && <div className={cx('last-icon')}>{item.iconEnd}</div>}
                     </NavLink>
                     {item.id === 4 && <div className={cx('line')}></div>}
                 </div>
@@ -52,14 +54,15 @@ export default function MenuNavbar({ listItemSidebar }: menuNavbarProps) {
                             className={({ isActive }) =>
                                 cx('navbar-menu-item', {
                                     'navbar-menu-item-focus': isActive && item.id < 8,
+                                    'focus-fix': isSidebarOpen,
                                 })
                             }
                         >
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <div className={cx('first-icon')}>{item.icon}</div>
-                                <div className={cx('title')}>{item.tiltle}</div>
+                                {!isSidebarOpen && <div className={cx('title')}>{item.tiltle}</div>}
                             </div>
-                            <div className={cx('last-icon')}>{item.iconEnd}</div>
+                            {!isSidebarOpen && <div className={cx('last-icon')}>{item.iconEnd}</div>}
                         </NavLink>
                     </div>
                 ))}
