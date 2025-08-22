@@ -4,6 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+   base: '/Zingmp3_Run/',
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),
